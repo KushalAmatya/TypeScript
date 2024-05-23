@@ -64,3 +64,27 @@ function add(a: any, b: any): any {
 
 console.log(add(10, 20));//30
 console.log(add('Hello, ', 'World!'));//Hello, World!
+
+
+//function that returns void
+function sayHello(): void {
+    console.log('Hello, World! this is void function');
+}
+sayHello(); //Hello, World! this is void function
+
+//function that returns promise
+async function fetchData(): Promise<string> {
+    return 'Hello, World! from  Async function';
+}
+fetchData().then((data) => {
+    console.log(data); //Hello, World!
+}); //Hello, World! from  Async function
+
+
+//union type
+let result: string | number;
+result = 'Hello, World! from union type';
+console.log(result); //Hello, World!    
+
+result = 10;
+console.log(result); //10
