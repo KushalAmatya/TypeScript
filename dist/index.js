@@ -1,13 +1,4 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 console.log('Hello, World!'); //Hello, World!
 //use let to define the type of variable
 let age = 20;
@@ -54,18 +45,48 @@ function sayHello() {
     console.log('Hello, World! this is void function');
 }
 sayHello(); //Hello, World! this is void function
-//function that returns promise
-function fetchData() {
-    return __awaiter(this, void 0, void 0, function* () {
-        return 'Hello, World! from  Async function';
-    });
-}
-fetchData().then((data) => {
-    console.log(data); //Hello, World!
-}); //Hello, World! from  Async function
+// //function that returns promise
+// async function fetchData(): Promise<string> {
+//     return 'Hello, World! from  Async function';
+// }
+// fetchData().then((data) => {
+//     console.log(data); //Hello, World!
+// }); //Hello, World! from  Async function
 //union type
 let result;
 result = 'Hello, World! from union type';
 console.log(result); //Hello, World!    
 result = 10;
 console.log(result); //10
+function concatOrAdd(a, b, c) {
+    if (typeof a === 'string' || typeof b === 'string' || typeof c === 'string') {
+        return `${a} ${b} ${c}`;
+    }
+    if (typeof a === 'number' && typeof b === 'number' && typeof c === 'number') {
+        return a + b + c;
+    }
+}
+console.log(concatOrAdd(10, 20, 30));
+console.log(concatOrAdd('Hello', 33, 'random Stranger'));
+const todo1 = {
+    title: "organize desk",
+    description: "clear clutter",
+};
+const todo2 = {
+    description: "throw out trash",
+};
+todo1.title = "Yooo";
+console.log(todo1);
+const cats = {
+    miffy: { age: 10, breed: "Persian" },
+    boris: { age: 5, breed: "Maine Coon" },
+    mordred: { age: 16, breed: "British Shorthair" },
+};
+console.log(cats.boris);
+console.log(cats);
+const dat = {
+    name: "Kushal",
+    age: 12,
+    email: "kushal@gmail.com",
+    location: "Nepal"
+};

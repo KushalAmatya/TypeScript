@@ -188,6 +188,7 @@ type MyOmit<T, K> = {
     name: string;
     age: number;
     email: string;
+    location: string
   }
   
   type PartialWithRequiredEmail = Partial<Omit<Data, 'email'>> & { email: Data['email'] };
@@ -195,6 +196,14 @@ type MyOmit<T, K> = {
   const dat: PartialWithRequiredEmail = {
     name: "Kushal",
     age: 12,
-    email: "kushal@example.com" 
+    email: "kushal@gmail.com" ,
+    location: "Nepal"
   };
   
+
+  //type readonly2
+  type MyReadOnly2 <T,K> = {
+    readonly [P in keyof T as P extends K ? P : never]:T[P]
+  } & {
+    [P in keyof T as P extends K ? never : P]:T[P]
+  }
