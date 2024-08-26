@@ -150,4 +150,27 @@ interface Todo {
     mordred: { age: 16, breed: "British Shorthair" },
   };
    
-  cats.boris;
+  console.log(cats.boris);
+  console.log(cats);
+  
+
+  //concat
+  type Concat<T extends any[], U extends any[]> = [...T,...U] 
+
+  //push
+  type Push<T, U> = T extends [...infer Items]?[...Items,U]:never;
+
+
+  type a=[1,2,3];
+  type b = [4]
+
+  type c = Push<a,b>
+  
+  //includes
+  type Includes<T extends readonly any[], U> = {
+    [x in T[number]]: true
+  }[U]extends true ? true : false
+  
+  
+//return type 
+type MyReturnType<T> = T extends (...args:any[]) => infer x?x:never

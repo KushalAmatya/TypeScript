@@ -67,3 +67,19 @@ function concatOrAdd(a, b, c) {
 }
 console.log(concatOrAdd(10, 20, 30));
 console.log(concatOrAdd('Hello', 33, 'random Stranger'));
+var todo1 = {
+    title: "organize desk",
+    description: "clear clutter",
+};
+var todo2 = {
+    description: "throw out trash",
+};
+todo1.title = "Yooo";
+console.log(todo1);
+var cats = {
+    miffy: { age: 10, breed: "Persian" },
+    boris: { age: 5, breed: "Maine Coon" },
+    mordred: { age: 16, breed: "British Shorthair" },
+};
+console.log(cats.boris);
+console.log(cats);
