@@ -174,3 +174,27 @@ interface Todo {
   
 //return type 
 type MyReturnType<T> = T extends (...args:any[]) => infer x?x:never
+
+
+//omit
+type MyOmit<T, K> = {
+    [P in keyof T as P extends K ? never : P]:T[P]
+  }
+
+
+
+
+  interface Data {
+    name: string;
+    age: number;
+    email: string;
+  }
+  
+  type PartialWithRequiredEmail = Partial<Omit<Data, 'email'>> & { email: Data['email'] };
+  
+  const dat: PartialWithRequiredEmail = {
+    name: "Kushal",
+    age: 12,
+    email: "kushal@example.com" 
+  };
+  

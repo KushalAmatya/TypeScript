@@ -83,3 +83,8 @@ var cats = {
 };
 console.log(cats.boris);
 console.log(cats);
+var dat = {
+    name: "Kushal",
+    age: 12,
+    email: "kushal@example.com"
+};
