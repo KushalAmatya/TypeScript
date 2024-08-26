@@ -65,7 +65,7 @@ fetchData().then((data) => {
 }); //Hello, World! from  Async function
 //union type
 let result;
-result = 'Hello, World!';
+result = 'Hello, World! from union type';
 console.log(result); //Hello, World!    
 result = 10;
 console.log(result); //10

@@ -72,13 +72,13 @@ function sayHello(): void {
 }
 sayHello(); //Hello, World! this is void function
 
-//function that returns promise
-async function fetchData(): Promise<string> {
-    return 'Hello, World! from  Async function';
-}
-fetchData().then((data) => {
-    console.log(data); //Hello, World!
-}); //Hello, World! from  Async function
+// //function that returns promise
+// async function fetchData(): Promise<string> {
+//     return 'Hello, World! from  Async function';
+// }
+// fetchData().then((data) => {
+//     console.log(data); //Hello, World!
+// }); //Hello, World! from  Async function
 
 
 //union type
@@ -88,3 +88,66 @@ console.log(result); //Hello, World!
 
 result = 10;
 console.log(result); //10
+
+
+
+
+function concatOrAdd<T extends string | number, U extends string|number, V extends string|number>(a: T, b: U, c: V) {
+    if (typeof a === 'string' || typeof b === 'string' || typeof c === 'string') {
+        return `${a} ${b} ${c}`;
+    }
+    if (typeof a === 'number' && typeof b === 'number' && typeof c === 'number') {
+        return a + b + c;
+    }
+    
+}
+
+console.log(concatOrAdd(10, 20, 30)); 
+console.log(concatOrAdd('Hello', 33, 'random Stranger'));
+
+
+
+
+type MyPick<T, K extends keyof T> = {
+    [P in K]: T[P];
+};
+
+
+
+type tupleToObject<T extends readonly any[]> = {
+    [P in T[number]]: P;
+};
+
+interface Todo {
+    title: string;
+    description: string;
+  }
+  
+  
+  const todo1:Required<Todo> = {
+    title: "organize desk",
+    description: "clear clutter",
+  };
+  
+  const todo2:Partial<Readonly<Todo>> =  {
+    description: "throw out trash",
+  };
+  
+  todo1.title = "Yooo"
+  
+  console.log(todo1);
+  
+  type CatName = "miffy" | "boris" | "mordred";
+   
+  interface CatInfo {
+    age: number;
+    breed: string;
+  }
+   
+  const cats: Record<CatName, CatInfo> = {
+    miffy: { age: 10, breed: "Persian" },
+    boris: { age: 5, breed: "Maine Coon" },
+    mordred: { age: 16, breed: "British Shorthair" },
+  };
+   
+  cats.boris;
